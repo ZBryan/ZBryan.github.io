@@ -1,0 +1,18 @@
+/* /templates/users.hbs 
+*/
+<ul class="users-listing">
+  {{#each user in controller}}
+    <li>{{user.firstName, user.lastName}}</li>
+  {{else}}
+    <li>no users… :-(</li>
+  {{/each}}
+</ul>
+<div>Users: {{usersCount}}</div>
+{{#each user in controller}}
+  <li>
+    {{#link-to "user" user}}
+      {{user.name}}
+    {{/link-to}}
+  </li>
+{{/each}}
+{{outlet}}
